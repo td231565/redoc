@@ -1,0 +1,51 @@
+---
+swagger: "2.0"
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Login API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /td231565/mdms_login/1.0.0
+schemes:
+- https
+paths:
+  /login:
+    post:
+      summary: user login
+      description: user login
+      operationId: login
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: account
+        description: account
+        required: false
+        schema:
+          $ref: '#/definitions/account'
+      responses:
+        "200":
+          description: success
+        "400":
+          description: invalid input
+definitions:
+  account:
+    type: object
+    required:
+    - account
+    - password
+    properties:
+      account:
+        type: string
+        format: uuid
+        example: test_user
+      password:
+        type: string
+        example: test_pwd
